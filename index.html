@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="play_wrap" id="player">
+        <div class="search_bar">
+            <img class="logo" src="./images/logo.png" alt="">
+            <div class="search_btn">
+                <input type="text" autocomplete="off" v-model="query" @keyup.enter="searchMusic" />
+                <button @click="searchMusic"></button>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="center_con">
+            <div class="song_wrapper">
+                <ul class="song_list">
+                    <li v-for="song in musicList" v-cloak>
+                        <a href="javascripy:;" @click="playMusic(song.id)"><p>{{ song.name }}</p></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="play_con" :class="{ playing: isPlaying }">
+                <img src="./images/player_bar.png" alt="" class="play_bar">
+                <img src="./images/disk.png" alt="" class="disk">
+                <img :src="musicCover" alt="" class="cover autoRotate">
+                <div class="song_name" v-cloak>
+                    <h2>{{ musicName }}</h2>
+                    <p>{{ musicAlbum }}</p>
+                    <p>{{ musicSinger }}</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="audio_con">
+            <audio id="audio" ref="audio" @play="play" @pause="pause" :src="musicUrl" controls autoplay loop></audio>
+        </div>
+    </div>
+</div>
+
+<script src="./js/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script src="./js/main.js"></script>
+</body>
+</html>

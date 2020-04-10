@@ -1,0 +1,295 @@
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 设置默认字体 */
+body,
+button, input, select, textarea { /* for ie */
+    /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
+    font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+}
+
+h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4, h5, h6 { font-size: 100%; }
+
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+
+/* 重置文本格式元素 */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+border-bottom: 1px dotted;
+cursor: help;
+}
+
+q:before, q:after { content: ''; }
+
+/* 重置表单元素 */
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+
+/* 重置表格元素 */
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+    border: none;
+    height: 1px;
+}
+
+[v-cloak] {
+	display: none;
+}
+
+.wrap{
+    width: 1000px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+    top: 15%;
+    background: #fcfcfc;
+    box-shadow: 0px -4px 10px 5px rgba(197, 197, 197, 0.5);
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+
+.search_bar{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding: 7px 10px;
+    background: #cf2626;
+    position: relative;
+    z-index: 9;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+.search_bar img.logo{
+    display: block;
+    float: left;
+    font-size: 0;
+}
+.search_btn{
+    display: block;
+    float: left;
+    line-height: 32px;
+    margin: 2px 0 0 50px;
+    position: relative;
+}
+.search_bar input{
+    display: block;
+    float: left;
+    width: 160px;
+    line-height: 32px;
+    padding: 0 10px;
+    border-radius: 50px;
+    border: 0;
+    outline: none;
+}
+.search_bar button{
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    background: url('./images/search.png') no-repeat 100%;
+    border: 0;
+    outline: none;
+    cursor:pointer
+}
+.clear{
+    clear: both;
+}
+
+.center_con{
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+}
+.center_con .song_wrapper{
+    display: block;
+    float: left;
+    width: 25%;
+    height: 450px;
+    overflow: auto;
+    border-right: 1px solid #dddddd;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+.center_con .song_wrapper::-webkit-scrollbar {
+    /*隐藏滚轮*/
+    display: none;
+}
+.song_wrapper ul{
+    max-height: 430px;
+}
+.song_wrapper ul.song_list{
+    max-height: 430px;
+}
+.song_wrapper ul.song_list li{
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.song_wrapper ul.song_list li:nth-child(odd){
+    background-color: #fdfdfd;
+}
+.song_list li a,.song_list li p{
+    display: inline-block;
+    padding: 0 0 0 12px;
+    width: 100%;
+    height: 32px;
+    color: #333;
+    letter-spacing: 1px;
+    font: 14px/32px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+.song_wrapper ul.song_list li a:hover{
+    background-color: #ececec;
+}
+.song_wrapper ul.song_list li a:hover p{
+    color: #e72828;
+}
+
+/* 唱片封面 */
+.center_con .play_con{
+    display: block;
+    float: left;
+    width: 50%;
+    height: 450px;
+    position: relative;
+    border-right: 1px solid #dddddd;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+.play_con .disk{
+    position: absolute;
+    width: 240px;
+    left: 50%;
+    top: 50px;
+    margin-left: -120px;
+}
+.play_con .cover{
+    width: 140px;
+    position: absolute;
+    left: 50%;
+    margin-left: -70px;
+    top: 100px;
+    z-index: 8;
+    border-radius: 50%;
+}
+@keyframes Rotate {
+	from {transform: rotateZ(0deg);}
+	to {transform: rotateZ(360deg);}
+}
+@-webkit-keyframes Rotate {
+	from {-webkit-transform: rotate(0deg);}
+	to {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes Rotate {
+	from {-moz-transform: rotate(0deg);}
+	to {-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes Rotate {
+	from {-ms-transform: rotate(0deg);}
+	to {-ms-transform: rotate(360deg);}
+}
+@-o-keyframes Rotate {
+	from {-o-transform: rotate(0deg);}
+	to {-o-transform: rotate(360deg);}
+}
+
+/* 旋转的类名 */
+.autoRotate {
+    animation: Rotate 24s linear 1s infinite paused;
+	-webkit-animation: Rotate 24s linear 1s infinite paused;
+	-moz-animation: Rotate 24s linear 1s infinite paused;
+	-ms-animation: Rotate 24s linear 1s infinite paused;
+    -o-animation: Rotate 24s linear 1s infinite paused;
+    /* animation-play-state: paused; */
+}
+/* 是否正在播放 */
+.play_con.playing .disk,.play_con.playing .cover {
+    animation-play-state: running;
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    -ms-animation-play-state: running;
+    -o-animation-play-state: running;
+}
+
+/* 播放杆 */
+.play_bar {
+    position: absolute;
+    left: 240px;
+    top: -14px;
+    z-index: 8;
+    transform: rotate(-25deg);
+    transform-origin: 12px 12px;
+    transition: 1s;
+}
+/* 播放杆 归位 */
+.play_con.playing .play_bar {
+    transform: rotate(0);
+}
+
+/* 播放组件 */
+.audio_con {
+    width: 100%;
+    background-color: #f3f3f3;
+    box-shadow: 0px 6px 10px 5px rgba(197, 197, 197, 0.5);
+    border-top: 1px solid #f0f0f0;
+}
+.audio_con audio{
+    width: 100%;
+    outline: none;
+}
+
+.song_name {
+    margin-top: 300px;
+    width: 100%;
+    padding: 0 100px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+.song_name h2{
+    color: #333;
+    text-align: center;
+    font: 32px/64px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+.song_name p{
+    text-align: center;
+    font: 18px/32px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
