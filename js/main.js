@@ -18,7 +18,9 @@ new Vue({
         // 歌手名
         musicSinger:"",
         // 是否暂停旋转封面
-        isPlaying: false
+        isPlaying: false,
+        // 评论
+        hotComments:[]
     },
     methods:{
         searchMusic(){
@@ -49,6 +51,12 @@ new Vue({
                 // 歌手名
                 this.musicSinger = '歌手：' + response.data.songs[0].ar[0].name;
             },(err)=>{} )
+
+            axios.get("/comment/hot?type=0&id="+musicId)
+            .then( (response)=>{
+                this.hotComments = response.data.hotComments;
+                console.log(response.data.hotComments)
+            },(err)=>{} )
         },
         play() {
             this.isPlaying = true
@@ -58,6 +66,7 @@ new Vue({
           // audio的pause事件
         pause() {
             this.isPlaying = false
-        }
+        },
+
     }
 })

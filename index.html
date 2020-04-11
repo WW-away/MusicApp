@@ -35,6 +35,21 @@
                     <p>{{ musicSinger }}</p>
                 </div>
             </div>
+            <div class="comment_wrapper">
+                <h4>精彩评论</h4>
+                <div class="comment_list">
+                    <dl v-for="item in hotComments" :key="item.id">
+                        <dt class="user_img"><img :src="item.user.avatarUrl" alt=""></dt>
+                        <dt>
+                            <p class="user_name">{{ item.user.nickname + ':' }}</p>
+                            <span class="liked_count">{{item.likedCount}}</span>
+                            <div class="clear"></div>
+                            <p class="user_content">{{ item.content }}</p>
+                        </dt>
+                        <div class="clear"></div>
+                    </dl>
+                </div>
+            </div>
             <div class="clear"></div>
         </div>
         <div class="audio_con">

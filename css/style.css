@@ -81,12 +81,18 @@ hr {
     height: 50px;
     line-height: 50px;
     padding: 7px 10px;
-    background: #cf2626;
+    /* background: #cf2626; */
     position: relative;
     z-index: 9;
     box-sizing:border-box;
     -moz-box-sizing:border-box; /* Firefox */
     -webkit-box-sizing:border-box; /* Safari */
+    background: -moz-linear-gradient(top, #7f1fce 0%, #a753ec 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7f1fce), color-stop(100%,#a753ec));
+    background: -webkit-linear-gradient(top, #7f1fce 0%,#a753ec 100%);
+    background: -o-linear-gradient(top, #7f1fce 0%,#a753ec 100%);
+    background: -ms-linear-gradient(top, #7f1fce 0%,#a753ec 100%);
+    background: linear-gradient(to bottom, #7f1fce 0%,#a753ec 100%);
 }
 .search_bar img.logo{
     display: block;
@@ -103,7 +109,7 @@ hr {
 .search_bar input{
     display: block;
     float: left;
-    width: 160px;
+    width: 200px;
     line-height: 32px;
     padding: 0 10px;
     border-radius: 50px;
@@ -129,12 +135,12 @@ hr {
 .center_con{
     width: 100%;
     height: 100%;
-    background-color: #f3f3f3;
+    background-color: #f6f6f6;
 }
 .center_con .song_wrapper{
     display: block;
     float: left;
-    width: 25%;
+    width: 20%;
     height: 450px;
     overflow: auto;
     border-right: 1px solid #dddddd;
@@ -156,19 +162,19 @@ hr {
     width: 100%;
     height: 32px;
     line-height: 32px;
-    overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
 }
 .song_wrapper ul.song_list li:nth-child(odd){
     background-color: #fdfdfd;
 }
 .song_list li a,.song_list li p{
     display: inline-block;
-    padding: 0 0 0 12px;
+    padding: 0 4px 0 12px;
     width: 100%;
     height: 32px;
     color: #333;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
     letter-spacing: 1px;
     font: 14px/32px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
     box-sizing:border-box;
@@ -179,14 +185,14 @@ hr {
     background-color: #ececec;
 }
 .song_wrapper ul.song_list li a:hover p{
-    color: #e72828;
+    color: #a230ff;
 }
 
 /* 唱片封面 */
 .center_con .play_con{
     display: block;
     float: left;
-    width: 50%;
+    width: 40%;
     height: 450px;
     position: relative;
     border-right: 1px solid #dddddd;
@@ -252,7 +258,7 @@ hr {
 /* 播放杆 */
 .play_bar {
     position: absolute;
-    left: 240px;
+    left: 190px;
     top: -14px;
     z-index: 8;
     transform: rotate(-25deg);
@@ -263,6 +269,74 @@ hr {
 .play_con.playing .play_bar {
     transform: rotate(0);
 }
+
+/* ---------------------------------------------- */
+/* 评论区 */
+.comment_wrapper{
+    display: block;
+    width: 40%;
+    float: left;
+    height: 450px;
+    overflow: auto;
+    padding: 10px 0 10px 10px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+.comment_wrapper::-webkit-scrollbar {
+    /*隐藏滚轮*/
+    display: none;
+}
+.comment_wrapper h4{
+    font: 16px/32px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+.comment_list dl{
+    padding: 10px 0;
+    border-top: 1px solid #dddddd;
+}
+.comment_list dl dt{
+    display: inline-block;
+    vertical-align:top;
+}
+.comment_list dl dt:nth-child(2){
+    width: 85%;
+    margin-left: 6px;
+}
+.comment_list dt.user_img {
+    width: 38px;
+}
+.comment_list .user_img img{
+    width: 100%;
+    border-radius: 50%;
+}
+/* 用户名 */
+.comment_list dt .user_name{
+    display: block;
+    float: left;
+    color: #4d50ff;
+    font: 14px/18px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+/* 评论 */
+.comment_list dt .liked_count{
+    display: block;
+    float: right;
+}
+.comment_list dt .liked_count::before{
+    content: " ";
+    display: block;
+    float: left;
+    height: 14px;
+    width: 14px;
+    margin-right: 2px;
+    background: url('../images/like.png') no-repeat;
+    background-size: 100%;
+}
+.comment_list dt .user_content{
+    display: block;
+    width: 90%;
+    font: 14px/24px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
 
 /* 播放组件 */
 .audio_con {
@@ -279,7 +353,6 @@ hr {
 .song_name {
     margin-top: 300px;
     width: 100%;
-    padding: 0 100px;
     box-sizing:border-box;
     -moz-box-sizing:border-box; /* Firefox */
     -webkit-box-sizing:border-box; /* Safari */
@@ -287,9 +360,9 @@ hr {
 .song_name h2{
     color: #333;
     text-align: center;
-    font: 32px/64px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+    font: 18px/32px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
 }
 .song_name p{
     text-align: center;
-    font: 18px/32px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+    font: 14px/32px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
 }
