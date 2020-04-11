@@ -117,7 +117,7 @@ hr {
     top: 4px;
     width: 24px;
     height: 24px;
-    background: url('./images/search.png') no-repeat 100%;
+    background: url('../images/search.png') no-repeat 100%;
     border: 0;
     outline: none;
     cursor:pointer
