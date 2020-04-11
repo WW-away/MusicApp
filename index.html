@@ -38,7 +38,7 @@
             <div class="comment_wrapper">
                 <h4>精彩评论</h4>
                 <div class="comment_list">
-                    <dl v-for="item in hotComments" :key="item.id">
+                    <dl v-for="item in hotComments" :key="item.id" v-cloak>
                         <dt class="user_img"><img :src="item.user.avatarUrl" alt=""></dt>
                         <dt>
                             <p class="user_name">{{ item.user.nickname + ':' }}</p>
