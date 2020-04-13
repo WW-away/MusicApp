@@ -21,7 +21,10 @@
             <div class="song_wrapper">
                 <ul class="song_list">
                     <li v-for="song in musicList" v-cloak>
-                        <a href="javascripy:;" @click="playMusic(song.id)"><p>{{ song.name }}</p></a>
+                        <a href="javascripy:;" @click="playMusic( song.id )">
+                            <p>{{ song.name }}</p>
+                        </a>
+                        <span v-if="song.mvid!=0" @click="playMV( song.mvid )" class="mv_btn"><i></i></span>
                     </li>
                 </ul>
             </div>
@@ -54,6 +57,10 @@
         </div>
         <div class="audio_con">
             <audio id="audio" ref="audio" @play="play" @pause="pause" :src="musicUrl" controls autoplay loop></audio>
+        </div>
+        <div class="video_con" v-show="isShow">
+            <video :src="mvUrl" controls="controls"></video>
+            <div class="mask" @click="hide()"></div>
         </div>
     </div>
 </div>

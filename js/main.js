@@ -20,7 +20,9 @@ new Vue({
         // 是否暂停旋转封面
         isPlaying: false,
         // 评论
-        hotComments:[]
+        hotComments:[],
+        isShow: false,
+        mvUrl: ""
     },
     methods:{
         searchMusic(){
@@ -55,7 +57,7 @@ new Vue({
             axios.get("/comment/hot?type=0&id="+musicId)
             .then( (response)=>{
                 this.hotComments = response.data.hotComments;
-                console.log(response.data.hotComments)
+                // console.log(response.data.hotComments)
             },(err)=>{} )
         },
         play() {
@@ -67,6 +69,18 @@ new Vue({
         pause() {
             this.isPlaying = false
         },
+        playMV(mvid){
+            axios.get("/mv/url?id="+mvid)
+            .then( (res)=>{
+                // console.log(res.data.data.url)
+                this.isShow = true;
+                this.mvUrl = res.data.data.url;
+            },(err)=>{} )
+        },
+        hide(){
+            this.isShow = false;
+            this.mvUrl = '';
+        }
 
     }
 })
