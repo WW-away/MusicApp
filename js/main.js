@@ -4,7 +4,7 @@ new Vue({
     el: '#player',
     data:{
         // 搜索框
-        query:"过又嘉",
+        query:"林俊杰",
         // 歌单
         musicList:[],
         // 歌曲地址
